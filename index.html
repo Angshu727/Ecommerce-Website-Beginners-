@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            color: #2575fc;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .products {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about, .contact {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input, textarea, button {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #222;
+            color: #fff;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            color: #fff;
+        }
+
+        #cart {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .cart-summary {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .cart-summary p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ShopEase</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to ShopEase</h1>
+        <p>Your one-stop shop for all your Electronic needs!</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Featured Products</h2>
+        <div class="product-container" id="product-list">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At ShopEase, we believe in revolutionizing the shopping experience. Our platform is designed to bring you a curated selection of high-quality products at unbeatable prices.
+            With a focus on customer satisfaction, we strive to offer:<br>
+            *A seamless shopping experience with user-friendly navigation.<br>
+            *Fast and reliable delivery options to ensure your orders reach you on time.<br>
+            *A dedicated support team ready to assist you with any inquiries.<br>
+            Whether you're looking for the latest tech gadgets, trendy fashion, or everyday essentials, ShopEase is your trusted partner in making your life easier and more delightful.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-summary">
+            <p id="cart-total">Total: $0</p>
+            <button id="checkout-button">Checkout</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact Support</a>
+        </div>
+        <p>&copy; 2024 ShopEase. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: 'Wireless Earbuds', price: 50, image: 'https://cdn.thewirecutter.com/wp-content/media/2022/11/wirelessearbuds-2048px-8831.jpg' },
+            { id: 2, name: 'Smartphone', price: 300, image: 'https://blogassets.airtel.in/wp-content/uploads/2024/10/technology-meets-nature-with-smart-phone-generative-ai-1.jpg' },
+            { id: 3, name: 'Gaming Laptop', price: 1500, image: 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1724856421/Croma%20Assets/Computers%20Peripherals/Laptop/Images/306350_0_gkxf50.png?tr=w-600' },
+            { id: 4, name: 'Mechanical Keyboard', price: 100, image: 'https://cdn2.unrealengine.com/mechanical-keyboard-diagonal-4080x2295-d50ff434f19c.jpg' },
+            { id: 5, name: 'Wireless Mouse', price: 30, image: 'https://redragon.in/cdn/shop/products/3_feb6d5fd-c246-478d-bfcd-e7874efc3b65_800x.jpg?v=1680603032' },
+            { id: 6, name: '4K Monitor', price: 400, image: 'https://m.media-amazon.com/images/I/A1Iqr2v1SIL.jpg' },
+            { id: 7, name: 'Bluetooth Speaker', price: 60, image: 'https://www.cnet.com/a/img/resize/82fb98adb00f30d5a5c9b773b22232ca0aaf8005/hub/2024/03/08/4d23f557-bd8e-4b87-a74b-0a669d583438/soundcore-by-anker-boom-2-outdoors.jpg?auto=webp&fit=crop&height=675&width=1200' },
+            { id: 8, name: 'Fitness Tracker', price: 70, image: 'https://cdn.thewirecutter.com/wp-content/media/2023/11/fitness-tracker-2048px-5344.jpg?auto=webp&quality=75&crop=1.91:1&width=1200' },
+            { id: 9, name: 'Smartwatch', price: 200, image: 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1701617118/Croma%20Assets/Communication/Wearable%20Devices/Images/275808_0_codzdf.png?tr=w-600' },
+            { id: 10, name: 'Drone Camera', price: 500, image: 'https://www.xboom.in/wp-content/uploads/2022/08/c72bbdb7883a907385da8d80b5cd9a8c@ultra-e1661759703999.jpg' },
+            { id: 11, name: 'Action Camera', price: 250, image: 'https://w0.peakpx.com/wallpaper/549/1003/HD-wallpaper-nikon-camer.jpg' },
+            { id: 12, name: 'Virtual Reality Headset', price: 300, image: 'https://static.independent.co.uk/2023/01/24/15/Apple%20Reality%20Pro%20headset%20Indybest%20copy.jpg?width=1200&height=630&fit=crop' },
+        ];
+
+        const productContainer = document.getElementById('product-list');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+
+        let cart = [];
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <span>${item.name}</span>
+                    <span>$${item.price}</span>
+                    <button onclick="removeFromCart(${item.id})">Remove</button>
+                `;
+
+                total += item.price;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            cartTotalElement.textContent = `Total: $${total}`;
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCart();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>$${product.price}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            `;
+
+            productContainer.appendChild(productDiv);
+        });
+
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', event => {
+            event.preventDefault();
+            alert('Thank you for reaching out to us!');
+            contactForm.reset();
+        });
+
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            if (cart.length > 0) {
+                alert('Thank you for your purchase!');
+                cart = [];
+                updateCart();
+            } else {
+                alert('Your cart is empty!');
+            }
+        });
+    </script>
+</body>
+</html>
